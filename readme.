@@ -1,0 +1,67 @@
+# 🧠 Mental Health Support System (DBMS Project)
+
+A Database Management System project designed to support mental health care by managing users, counselors, appointments, mental health records, and resources in a structured and efficient way.
+
+## 📚 Table of Contents
+
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Entity-Relationship Diagram](#entity-relationship-diagram)
+- [Database Schema](#database-schema)
+- [Technologies Used](#technologies-used)
+- [How to Run](#how-to-run)
+- [Sample Queries](#sample-queries)
+- [Future Scope](#future-scope)
+- [Contributors](#contributors)
+
+---
+
+## 🧩 About the Project
+
+Mental health is a growing concern globally. This project is aimed at building a **Database Management System** that stores and organizes essential information for a **mental health support platform**. The system can be integrated into a larger web or mobile application in the future.
+
+## ✅ Features
+
+- Manage **User Registrations** (patients, counselors)
+- Store **mental health reports**
+- Schedule and track **appointments**
+- Provide access to **mental health resources**
+- Role-based access for **admins, patients, and counselors**
+- **Feedback system** for continuous improvement
+
+## 🗃️ Entity-Relationship Diagram
+
+*(Insert ER Diagram image here or link)*
+
+Entities:
+- User
+- Counselor
+- Appointment
+- Report
+- Feedback
+- Resources
+
+## 🛠️ Database Schema
+
+Tables created in MySQL:
+
+- `users(user_id, name, email, password, role)`
+- `counselors(counselor_id, name, specialization, availability)`
+- `appointments(appointment_id, user_id, counselor_id, date, time, status)`
+- `reports(report_id, user_id, description, date_created)`
+- `feedback(feedback_id, user_id, message, rating)`
+- `resources(resource_id, title, type, link)`
+
+(Relationships defined through primary and foreign keys.)
+
+## 🧪 Sample Queries
+
+```sql
+-- List all available counselors
+SELECT name, specialization FROM counselors WHERE availability = 'Available';
+
+-- Get all appointments of a user
+SELECT * FROM appointments WHERE user_id = 101;
+
+-- Insert a new feedback
+INSERT INTO feedback(user_id, message, rating) VALUES (101, 'Very helpful session!', 5);
